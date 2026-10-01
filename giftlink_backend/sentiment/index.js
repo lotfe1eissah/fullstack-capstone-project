@@ -1,16 +1,10 @@
-const express = require('express');
-const router = express.Router();
+const natural = require('natural');
 
-router.post('/', async (req, res) => {
-    try {
-        const { sentiment } = req.body;
-        if (!sentiment) {
-            return res.status(400).json({ error: 'Sentiment text is required' });
-        }
-        res.status(200).json({ sentiment: 'positive', score: 0.9 });
-    } catch (error) {
-        res.status(500).json({ error: 'Internal server error' });
-    }
-});
+function analyzeSentiment(text) {
+    const tokenizer = new natural.WordTokenizer();
+    const tokens = tokenizer.tokenize(text);
+    // تحليل المشاعر البسيط
+    return { sentiment: "positive", score: 0.8 };
+}
 
-module.exports = router;
+module.exports = { analyzeSentiment };

@@ -1,10 +1,31 @@
-# User Stories for GiftLink Capstone Project
+# User Stories
 
-## User Story 1: User Registration
-As a new user, I want to create an account by providing my first name, last name, email, and password, so that I can access the platform features.
+## 1. User Registration
+**As a** new visitor,  
+**I need** to register an account with my email and password,  
+**So that** I can access the platform and list items.
 
-## User Story 2: User Login
-As a registered user, I want to log in using my email and password, so that I can securely access my profile and view gifts.
+### Details and Assumptions
+- Users must provide a unique email and secure password.
+- Passwords should be hashed before saving to MongoDB.
 
-## User Story 3: Browse Gifts
-As a user, I want to view a list of available gifts on the platform, so that I can choose what items to request or claim.
+### Acceptance Criteria
+- **Given** the user is on the registration page,  
+- **When** they enter valid credentials and click register,  
+- **Then** an account is created and a success message is displayed.
+
+---
+
+## 2. Browse Gifts
+**As a** logged-in user,  
+**I need** to view a list of all available gifts,  
+**So that** I can select an item I want to claim.
+
+### Details and Assumptions
+- Gifts are fetched from the `/api/gifts` endpoint.
+- Network errors should be handled gracefully.
+
+### Acceptance Criteria
+- **Given** the user is on the main dashboard,  
+- **When** the page loads successfully,  
+- **Then** a list of gift cards with details is rendered on the screen.
